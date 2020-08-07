@@ -102,6 +102,7 @@
 require ("controller/classes/data/ApiBaseObject.php");
 require ("controller/classes/data/Collection.php");
 require ("controller/classes/data/Company.php");
+require ("controller/classes/data/Network.php");
 require ("controller/classes/data/Episode.php");
 require ("controller/classes/data/Genre.php");
 require ("controller/classes/data/Movie.php");
@@ -716,6 +717,19 @@ class TMDB {
 		$appendToResponse = (isset($appendToResponse)) ? $appendToResponse : $this->getConfig()->getAppender('company');
 
 		return new Company($this->_call('company/' . $idCompany, $appendToResponse));
+	}
+
+		/**
+	 * 	Get a Network
+	 *
+	 * 	@param int $idNetwork The Person id
+	 * 	@param array $appendToResponse The extra append of the request
+	 * 	@return NEtwork
+	 */
+	public function getNetwork($idNetwork, $appendToResponse = null) {
+		$appendToResponse = (isset($appendToResponse)) ? $appendToResponse : $this->getConfig()->getAppender('network');
+
+		return new Network($this->_call('network/' . $idNetwork, $appendToResponse));
 	}
 
 	//------------------------------------------------------------------------------
