@@ -48,5 +48,9 @@ class Genre {
     public function getID() {
         return $this->_data['id'];
     }
+	
+	public function get($item = '') {
+        return (empty($item)) ? $this->_data : $this->_data[$item];
+    }
 }
 ?>
